@@ -37,14 +37,17 @@ for x in users:
 def homepage():
     return f'home page!'
 
-@app.route("/docs")
-def docs():
-    names = "NOTHING"
-  
-    
-    
+@app.route("/add_user")
+def add_user():
+    name = "jimmy"
+    email = "jimmy12@gmail.com"
+    u = user(name=name, email=email)
+    u.save()
+    current_users = []
+    for x in user.objects():
+        current_users.append(x.name)
+    return ', '.join(current_users)
 
-    return f'{names}'
 
 @app.route("/about")
 def about():
