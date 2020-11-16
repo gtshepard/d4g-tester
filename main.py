@@ -15,9 +15,12 @@ db = client.ehredfd4g
 print(db.list_collection_names())
 print(db.user.find_one())
 
-
-
-
+new_user = {"name": "steve", "email":"steve@gmail.com"}
+db.user.insert(new_user)
+my_query = { "name": "steve" }
+users = db.user.find(my_query)
+for x in users:
+    print(x)
 #app.config["MONGODB_HOST"] = DB_URI
 # mongodb+srv://garrison:<password>@test.ej3zh.mongodb.net/<dbname>?retryWrites=true&w=majority
 
